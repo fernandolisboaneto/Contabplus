@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ContabPlus - Contabilidade Especializada</title>
-    <link rel="icon" type="image/png" href="/logo.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
+    <title>ContabPlus - Contabilidade Online Especializada | Seu Contador Online</title>
+    <meta name="description" content="Contabilidade online especializada com a ContabPlus. Abertura de empresa grátis, Transfer Pricing, Consultoria Tributária e muito mais. 40% mais econômico!">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -14,16 +15,28 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="/logo.png" alt="ContabPlus Logo" class="logo-img">
-                    <span class="logo-text">ContabPlus</span>
+                    <img src="logo.png" alt="ContabPlus Logo" class="logo">
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#inicio" class="nav-link">Início</a></li>
-                    <li><a href="#servicos" class="nav-link">Serviços</a></li>
-                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li><a href="#contato" class="nav-link">Contato</a></li>
-                    <li><a href="/login" class="nav-link area-cliente">Área do Cliente</a></li>
+                    <li class="nav-item">
+                        <a href="#servicos" class="nav-link">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#planos" class="nav-link">Planos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sobre" class="nav-link">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contato" class="nav-link">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/client" class="nav-link">Área do Cliente</a>
+                    </li>
                 </ul>
+                <div class="nav-cta">
+                    <a href="#abrir-empresa" class="btn btn-primary">Abra sua empresa</a>
+                </div>
                 <div class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -34,160 +47,398 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero">
+    <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Contabilidade Especializada para o Seu Sucesso</h1>
-                <p class="hero-subtitle">Oferecemos soluções contábeis completas e especializadas para empresas de todos os portes, com foco em excelência, transparência e resultados.</p>
-                <div class="hero-buttons">
-                    <a href="#servicos" class="btn btn-primary">Nossos Serviços</a>
-                    <a href="/abrir-empresa" class="btn btn-secondary">Abrir Empresa</a>
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Abra sua empresa online e tenha benefícios que vão além da contabilidade
+                    </h1>
+                    <p class="hero-subtitle">
+                        Somos especialistas em contabilidade online e gestão empresarial eficiente. 
+                        Mais de 5 mil profissionais em todo o Brasil já confiam na ContabPlus.
+                    </p>
+                    <div class="hero-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>CNPJ rápido</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Emissão de notas com 1 clique</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>40% mais econômico</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-card">
-                    <h3>Planos a partir de</h3>
-                    <div class="price">R$ 89,90<span>/mês</span></div>
-                    <p>40% mais econômico que a concorrência</p>
+                <div class="hero-form">
+                    <div class="form-card">
+                        <h3>Comece agora mesmo</h3>
+                        <p>Preencha os dados e receba uma proposta personalizada</p>
+                        <form id="hero-form" class="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Seu melhor e-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="telefone" name="telefone" placeholder="Seu WhatsApp" required>
+                            </div>
+                            <div class="form-group">
+                                <select id="tipo-empresa" name="tipo-empresa" required>
+                                    <option value="">Tipo de empresa</option>
+                                    <option value="mei">MEI</option>
+                                    <option value="ltda">LTDA</option>
+                                    <option value="eireli">EIRELI</option>
+                                    <option value="sa">S/A</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select id="atividade" name="atividade" required>
+                                    <option value="">Área de atividade</option>
+                                    <option value="servicos">Serviços</option>
+                                    <option value="comercio">Comércio</option>
+                                    <option value="industria">Indústria</option>
+                                    <option value="consultoria">Consultoria</option>
+                                    <option value="saude">Saúde</option>
+                                    <option value="tecnologia">Tecnologia</option>
+                                    <option value="terceiro-setor">Terceiro Setor</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                Quero uma proposta gratuita
+                            </button>
+                        </form>
+                        <p class="form-disclaimer">
+                            <i class="fas fa-lock"></i>
+                            Seus dados estão seguros conosco
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicos" class="services">
+    <!-- Como Funciona -->
+    <section class="how-it-works">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nossos Serviços Especializados</h2>
-                <p class="section-subtitle">Soluções contábeis abrangentes e especializadas para atender todas as necessidades do seu negócio</p>
+            <h2 class="section-title">Como funciona</h2>
+            <p class="section-subtitle">Trabalhamos de forma prática, simples, econômica e muito próxima de você.</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Orientamos você em todas as escolhas</h3>
+                    <p>Nossos especialistas te ajudam a escolher o melhor regime tributário e atividades para sua empresa.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Realizamos todo o processo de abertura da empresa</h3>
+                    <p>Cuidamos de toda a burocracia para você. Documentação, protocolos e acompanhamento completo.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Cuidamos da sua contabilidade</h3>
+                    <p>Gestão contábil completa, impostos, obrigações e suporte especializado sempre que precisar.</p>
+                </div>
             </div>
+            <div class="cta-center">
+                <a href="#abrir-empresa" class="btn btn-primary">Quero abrir minha empresa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos -->
+    <section id="planos" class="plans">
+        <div class="container">
+            <h2 class="section-title">Nossos Planos</h2>
+            <p class="section-subtitle">Escolha o plano ideal para sua empresa</p>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Serviços Contábeis</h3>
-                    <p>Contabilidade geral, fiscal e tributário, departamento pessoal e consultoria especializada.</p>
-                    <a href="#" class="service-link">Saiba mais</a>
+            <div class="plans-grid">
+                <!-- Plano Essencial -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>ESSENCIAL</h3>
+                        <p class="plan-description">Certificado digital incluso no plano.</p>
+                        <div class="plan-price">
+                            <span class="price-from">a partir de</span>
+                            <span class="price-old">R$ 280</span>
+                            <span class="price-current">R$ 168</span>
+                        </div>
+                        <p class="plan-subtitle">Você emite suas notas e paga seus impostos em nossa plataforma online.</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Contabilidade completa</h4>
+                            <p>Todas as obrigações contábeis e legais com Receita Federal, Estadual e Prefeitura:</p>
+                            <ul>
+                                <li>Cálculo e emissão de guia de impostos</li>
+                                <li>Envio de IRPJ, DIPJ, DEFIS</li>
+                                <li>Relatórios contábeis (DRE, Balanço Patrimonial, Balancete etc.)</li>
+                                <li>Obrigações acessórias (DCTF, SPED etc.)</li>
+                                <li>Documentos assinados por contador especializado</li>
+                            </ul>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Processo de abertura grátis</h4>
+                            <p>Você paga apenas as taxas do governo. Indicamos o melhor regime tributário e atividades.</p>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Certificado digital gratuito</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Atendimento via WhatsApp das 9h às 22h</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Atendimento via chat e e-mail das 9h às 17h30</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Emita quantas NF-e 55 você quiser</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Conta PJ gratuita</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Pró-labore dos sócios</h4>
+                            <p>Pró-labore de até 2 sócios grátis.</p>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Faturamento mensal ideal até R$ 50 mil</h4>
+                        </div>
+                    </div>
+                    <div class="plan-cta">
+                        <button class="btn btn-outline">Fale com um contador</button>
+                        <a href="#contratar" class="btn btn-primary">Contrate agora</a>
+                    </div>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🏢</div>
-                    <h3>Abertura de Empresas</h3>
-                    <p>Consultoria inicial, elaboração de documentação, registro e legalização completa.</p>
-                    <a href="#" class="service-link">Saiba mais</a>
+
+                <!-- Plano Premium -->
+                <div class="plan-card plan-featured">
+                    <div class="plan-badge">Melhor custo-benefício</div>
+                    <div class="plan-header">
+                        <h3>PREMIUM</h3>
+                        <p class="plan-description">Benefícios para sua saúde e bem-estar.</p>
+                        <div class="plan-price">
+                            <span class="price-from">a partir de</span>
+                            <span class="price-old">R$ 320</span>
+                            <span class="price-current">R$ 192</span>
+                        </div>
+                        <p class="plan-subtitle">Pacote de benefícios exclusivos no plano.</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Tudo do plano Essencial</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Pacote de benefícios: academia, consultas com psicólogo e nutricionista</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Conta PJ gratuita com débito automático</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Consultoria tributária especializada</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Transfer Pricing (OCDE/Brasil)</h4>
+                        </div>
+                    </div>
+                    <div class="plan-cta">
+                        <button class="btn btn-outline">Fale com um contador</button>
+                        <a href="#contratar" class="btn btn-primary">Contrate agora</a>
+                    </div>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>Consultoria Tributária</h3>
-                    <p>Planejamento tributário estratégico, compliance e gestão de riscos fiscais.</p>
-                    <a href="#" class="service-link">Saiba mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Transfer Pricing</h3>
-                    <p>Conformidade com regras brasileiras e OCDE para transações internacionais.</p>
-                    <a href="#" class="service-link">Saiba mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">👥</div>
-                    <h3>Recursos Humanos</h3>
-                    <p>Recrutamento, treinamento, administração de pessoal e relações trabalhistas.</p>
-                    <a href="#" class="service-link">Saiba mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3>Terceiro Setor</h3>
-                    <p>Gestão especializada para ONGs, OSCIPs e entidades sem fins lucrativos.</p>
-                    <a href="#" class="service-link">Saiba mais</a>
+
+                <!-- Plano Expert -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>EXPERT</h3>
+                        <p class="plan-description">Assessor e analista dedicados.</p>
+                        <div class="plan-price">
+                            <span class="price-from">a partir de</span>
+                            <span class="price-old">R$ 515</span>
+                            <span class="price-current">R$ 309</span>
+                        </div>
+                        <p class="plan-subtitle">Ideal para quem precisa de apoio nas rotinas de contabilidade.</p>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Tudo do plano Premium</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Atendimento via assessor dedicado</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Atendimento via telefone das 9h às 18h</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Emissão de notas fiscais</h4>
+                            <p>Até 35 NFs/mês.</p>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Importação e conciliação de extrato</h4>
+                            <p>Até 2 contas bancárias.</p>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Folha de pagamento</h4>
+                            <p>Até 3 funcionários grátis.</p>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Faturamento mensal ideal até R$ 200 mil</h4>
+                        </div>
+                        <div class="feature-group">
+                            <h4><i class="fas fa-check"></i> Serviços para Terceiro Setor</h4>
+                            <p>Especialização em ONGs e OSCIPs.</p>
+                        </div>
+                    </div>
+                    <div class="plan-cta">
+                        <button class="btn btn-outline">Fale com um contador</button>
+                        <a href="#contratar" class="btn btn-primary">Contrate agora</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Especialidades -->
+    <section id="servicos" class="specialties">
+        <div class="container">
+            <h2 class="section-title">Nossas Especialidades</h2>
+            <p class="section-subtitle">Somos reconhecidos pela nossa especialização em diversos segmentos.</p>
+            
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Transfer Pricing</h3>
+                    <p>Especialistas em Transfer Pricing conforme diretrizes da OCDE e legislação brasileira. Ajudamos empresas multinacionais a cumprir suas obrigações de forma eficiente.</p>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Consultoria Tributária</h3>
+                    <p>Consultoria especializada para otimização tributária, planejamento fiscal e compliance. Reduzimos sua carga tributária de forma legal e segura.</p>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Recursos Humanos</h3>
+                    <p>Gestão completa de RH, folha de pagamento, benefícios e compliance trabalhista. Cuidamos dos seus colaboradores com excelência.</p>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Terceiro Setor</h3>
+                    <p>Especialização em ONGs, OSCIPs e entidades do terceiro setor. Conhecemos as particularidades e obrigações específicas deste segmento.</p>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Serviços Societários</h3>
+                    <p>Alterações contratuais, mudanças de sócios, aumentos de capital e todos os serviços relacionados à vida societária da empresa.</p>
+                </div>
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>IRPJ Especializado</h3>
+                    <p>Gestão especializada do Imposto de Renda Pessoa Jurídica, com foco em otimização e compliance para empresas de todos os portes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Confira o que nossos clientes falam sobre nós</h2>
+            <p class="section-subtitle">Somos reconhecidos pela nossa especialização em diversos segmentos.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"A ContabPlus me ajudou a deixar a gestão do meu CNPJ mais rápida. Sobra mais tempo para o meu negócio."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Felipe Bernardo Ferreira</h4>
+                            <p>Arquiteto e cliente ContabPlus desde 2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Abri minha empresa sem sair de casa e de forma simples e prática. Resolvo dúvidas via e-mail e videochamada."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Ana Luisa Garcia de Paula</h4>
+                            <p>Médica e cliente ContabPlus desde 2017</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Eu não preciso me preocupar com a parte burocrática de ser PJ porque a ContabPlus cuida disso para mim."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Vitor de Sousa</h4>
+                            <p>Consultor em mercado de capitais e cliente ContabPlus desde 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
     <section id="sobre" class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Sobre a ContabPlus</h2>
-                    <p>A ContabPlus é uma empresa de contabilidade especializada que oferece soluções completas e personalizadas para empresas de todos os portes. Com anos de experiência no mercado, nossa equipe de especialistas está preparada para atender às mais diversas necessidades contábeis, fiscais e tributárias.</p>
-                    
-                    <div class="about-features">
-                        <div class="feature">
-                            <h4>Experiência Comprovada</h4>
-                            <p>Anos de atuação no mercado com cases de sucesso em diversos segmentos.</p>
+                    <h2>Somos líderes em contabilidade especializada no Brasil</h2>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">10</div>
+                            <div class="stat-label">anos</div>
+                            <p>Existimos há mais de</p>
                         </div>
-                        <div class="feature">
-                            <h4>Equipe Especializada</h4>
-                            <p>Profissionais qualificados e atualizados com as últimas mudanças legislativas.</p>
+                        <div class="stat">
+                            <div class="stat-number">50</div>
+                            <div class="stat-label">cidades</div>
+                            <p>Estamos presentes em mais de</p>
                         </div>
-                        <div class="feature">
-                            <h4>Atendimento Personalizado</h4>
-                            <p>Cada cliente recebe um atendimento dedicado e soluções sob medida.</p>
+                        <div class="stat">
+                            <div class="stat-number">1.200</div>
+                            <div class="stat-label">especialistas</div>
+                            <p>Nosso time conta com mais de</p>
                         </div>
                     </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Empresas Atendidas</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Anos de Experiência</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Satisfação dos Clientes</div>
-                    </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x400/B8860B/FFFFFF?text=ContabPlus+Team" alt="Equipe ContabPlus">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contato" class="contact">
+    <!-- CTA Final -->
+    <section class="final-cta">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Entre em Contato</h2>
-                <p class="section-subtitle">Estamos prontos para atender você e sua empresa</p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h4>Telefone</h4>
-                        <p>(11) 9999-9999</p>
-                    </div>
-                    <div class="contact-item">
-                        <h4>Email</h4>
-                        <p>contato@contabplus.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <h4>Endereço</h4>
-                        <p>São Paulo, SP</p>
-                    </div>
+            <div class="cta-content">
+                <h2>Pronto para começar?</h2>
+                <p>Fale com nossos especialistas e descubra como podemos ajudar sua empresa a crescer.</p>
+                <div class="cta-buttons">
+                    <a href="#abrir-empresa" class="btn btn-primary">Abrir empresa</a>
+                    <a href="#contratar" class="btn btn-outline">Contratar serviços</a>
                 </div>
-                
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Seu nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Seu email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Seu telefone" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
             </div>
         </div>
     </section>
@@ -198,48 +449,63 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="/logo.png" alt="ContabPlus Logo" class="logo-img">
-                        <span class="logo-text">ContabPlus</span>
+                        <img src="logo.png" alt="ContabPlus Logo">
+                        <p>Simplificando a vida de quem empreende no Brasil e potencializando histórias de sucesso.</p>
                     </div>
-                    <p>Contabilidade especializada para o seu sucesso empresarial.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Serviços</h4>
-                    <ul>
-                        <li><a href="#">Contabilidade Geral</a></li>
-                        <li><a href="#">Abertura de Empresas</a></li>
-                        <li><a href="#">Consultoria Tributária</a></li>
-                        <li><a href="#">Transfer Pricing</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li>contato@contabplus.com</li>
-                        <li>(11) 9999-9999</li>
-                        <li>São Paulo, SP</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Redes Sociais</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link">LinkedIn</a>
-                        <a href="#" class="social-link">Instagram</a>
-                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
+                </div>
+                <div class="footer-section">
+                    <h4>A Empresa</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre nós</a></li>
+                        <li><a href="#carreiras">Carreiras</a></li>
+                        <li><a href="#imprensa">Imprensa</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contabilidade</h4>
+                    <ul>
+                        <li><a href="#planos">Planos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#especialidades">Especialidades</a></li>
+                        <li><a href="#area-cliente">Área do Cliente</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#ajuda">Central de Ajuda</a></li>
+                        <li><a href="mailto:contato@contabplus.com">contato@contabplus.com</a></li>
+                    </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <p>&copy; 2025 ContabPlus. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="#privacidade">Política de Privacidade</a>
+                    <a href="#termos">Termos de Uso</a>
+                    <a href="#cookies">Política de Cookies</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="/script.js"></script>
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5511999999999" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
 

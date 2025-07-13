@@ -4,252 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área do Cliente - ContabPlus</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
-    <style>
-        .client-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 20px 40px;
-            min-height: 100vh;
-        }
-
-        .client-header {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .client-welcome h1 {
-            font-family: 'Playfair Display', serif;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .client-welcome p {
-            color: var(--text-light);
-        }
-
-        .logout-btn {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .logout-btn:hover {
-            background: var(--accent-color);
-        }
-
-        .client-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .client-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .client-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .upload-area {
-            border: 2px dashed var(--primary-color);
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            transition: var(--transition);
-        }
-
-        .upload-area:hover {
-            background: var(--background-light);
-        }
-
-        .upload-area.dragover {
-            background: var(--background-light);
-            border-color: var(--accent-color);
-        }
-
-        .file-input {
-            display: none;
-        }
-
-        .upload-btn {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .upload-btn:hover {
-            background: var(--accent-color);
-        }
-
-        .document-list {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .document-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid #E8E8E8;
-        }
-
-        .document-item:last-child {
-            border-bottom: none;
-        }
-
-        .document-info h4 {
-            color: var(--secondary-color);
-            margin-bottom: 0.25rem;
-        }
-
-        .document-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .document-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .btn-download {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        .btn-delete {
-            background: #e74c3c;
-            color: var(--white);
-        }
-
-        .message-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form-input {
-            padding: 0.75rem;
-            border: 2px solid #E8E8E8;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .message-list {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .message-item {
-            padding: 1rem;
-            border-bottom: 1px solid #E8E8E8;
-            margin-bottom: 1rem;
-        }
-
-        .message-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .message-subject {
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-
-        .message-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .message-content {
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .login-form {
-            max-width: 400px;
-            margin: 150px auto;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .login-form h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--secondary-color);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .client-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .client-header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
-    </style>
+    <meta name="description" content="Área do cliente ContabPlus - Gerencie seus documentos, impostos e comunicação com seu contador.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="client.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -257,112 +16,396 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="/logo.png" alt="ContabPlus" class="logo-img">
-                    <span class="logo-text">ContabPlus</span>
+                    <a href="/">
+                        <img src="logo.png" alt="ContabPlus Logo" class="logo">
+                    </a>
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="/" class="nav-link">Voltar ao Site</a></li>
-                </ul>
+                <div class="nav-user" id="nav-user" style="display: none;">
+                    <span class="user-name" id="user-name"></span>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Sair</button>
+                </div>
             </div>
         </nav>
     </header>
 
     <!-- Login Form -->
-    <div id="loginForm" class="login-form">
-        <h2>Área do Cliente</h2>
-        <form id="clientLoginForm">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-input" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" class="form-input" required>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Entrar</button>
-        </form>
-        <p style="text-align: center; margin-top: 1rem;">
-            Não tem conta? <a href="#" id="showRegister" style="color: var(--primary-color);">Cadastre-se</a>
-        </p>
-    </div>
+    <section class="login-section" id="login-section">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <h2>Área do Cliente</h2>
+                        <p>Acesse sua conta para gerenciar seus documentos e impostos</p>
+                    </div>
+                    
+                    <div class="login-tabs">
+                        <button class="tab-btn active" onclick="showTab('login')">Entrar</button>
+                        <button class="tab-btn" onclick="showTab('register')">Cadastrar</button>
+                    </div>
 
-    <!-- Register Form -->
-    <div id="registerForm" class="login-form hidden">
-        <h2>Cadastro de Cliente</h2>
-        <form id="clientRegisterForm">
-            <div class="form-group">
-                <label for="regName">Nome:</label>
-                <input type="text" id="regName" name="name" class="form-input" required>
-            </div>
-            <div class="form-group">
-                <label for="regEmail">Email:</label>
-                <input type="email" id="regEmail" name="email" class="form-input" required>
-            </div>
-            <div class="form-group">
-                <label for="regPhone">Telefone:</label>
-                <input type="tel" id="regPhone" name="phone" class="form-input">
-            </div>
-            <div class="form-group">
-                <label for="regCompany">Nome da Empresa:</label>
-                <input type="text" id="regCompany" name="company_name" class="form-input">
-            </div>
-            <div class="form-group">
-                <label for="regCnpj">CNPJ:</label>
-                <input type="text" id="regCnpj" name="cnpj" class="form-input">
-            </div>
-            <div class="form-group">
-                <label for="regPassword">Senha:</label>
-                <input type="password" id="regPassword" name="password" class="form-input" required>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Cadastrar</button>
-        </form>
-        <p style="text-align: center; margin-top: 1rem;">
-            Já tem conta? <a href="#" id="showLogin" style="color: var(--primary-color);">Faça login</a>
-        </p>
-    </div>
+                    <!-- Login Tab -->
+                    <div class="tab-content active" id="login-tab">
+                        <form id="login-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="login-email">E-mail</label>
+                                <input type="email" id="login-email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Senha</label>
+                                <input type="password" id="login-password" name="password" placeholder="Sua senha" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+                        </form>
+                        <div class="auth-links">
+                            <a href="#" onclick="showForgotPassword()">Esqueci minha senha</a>
+                        </div>
+                    </div>
 
-    <!-- Client Area -->
-    <div id="clientArea" class="client-container hidden">
-        <div class="client-header">
-            <div class="client-welcome">
-                <h1>Bem-vindo, <span id="clientName"></span>!</h1>
-                <p>Gerencie seus documentos e mensagens</p>
+                    <!-- Register Tab -->
+                    <div class="tab-content" id="register-tab">
+                        <form id="register-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="register-name">Nome completo</label>
+                                <input type="text" id="register-name" name="name" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-email">E-mail</label>
+                                <input type="email" id="register-email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-phone">Telefone</label>
+                                <input type="tel" id="register-phone" name="phone" placeholder="(11) 99999-9999" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-cnpj">CNPJ (opcional)</label>
+                                <input type="text" id="register-cnpj" name="cnpj" placeholder="00.000.000/0001-00">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-password">Senha</label>
+                                <input type="password" id="register-password" name="password" placeholder="Mínimo 6 caracteres" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-confirm-password">Confirmar senha</label>
+                                <input type="password" id="register-confirm-password" name="confirm_password" placeholder="Confirme sua senha" required>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="register-terms" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    Aceito os <a href="#" target="_blank">termos de uso</a> e <a href="#" target="_blank">política de privacidade</a>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Criar conta</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <button id="logoutBtn" class="logout-btn">Sair</button>
         </div>
+    </section>
 
-        <div class="client-grid">
-            <!-- Upload de Documentos -->
-            <div class="client-card">
-                <h3>📄 Meus Documentos</h3>
-                <div class="upload-area" id="uploadArea">
-                    <p>Arraste arquivos aqui ou clique para selecionar</p>
-                    <input type="file" id="fileInput" class="file-input" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.txt">
-                    <button type="button" class="upload-btn" onclick="document.getElementById('fileInput').click()">
-                        Selecionar Arquivos
-                    </button>
+    <!-- Dashboard -->
+    <section class="dashboard-section" id="dashboard-section" style="display: none;">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Bem-vindo, <span id="dashboard-user-name"></span>!</h1>
+                <p>Gerencie seus documentos, impostos e comunicação com seu contador</p>
+            </div>
+
+            <!-- Dashboard Stats -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="documents-count">0</h3>
+                        <p>Documentos enviados</p>
+                    </div>
                 </div>
-                <div class="document-list" id="documentList">
-                    <!-- Documentos serão carregados aqui -->
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="taxes-count">0</h3>
+                        <p>Impostos em dia</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="messages-count">0</h3>
+                        <p>Mensagens</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Em dia</h3>
+                        <p>Status contábil</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Mensagens -->
-            <div class="client-card">
-                <h3>💬 Mensagens</h3>
-                <form class="message-form" id="messageForm">
-                    <input type="text" placeholder="Assunto" class="form-input" name="subject" required>
-                    <textarea placeholder="Sua mensagem..." class="form-input" name="content" rows="4" required></textarea>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            <!-- Dashboard Navigation -->
+            <div class="dashboard-nav">
+                <button class="nav-btn active" onclick="showDashboardTab('overview')">
+                    <i class="fas fa-home"></i>
+                    Visão Geral
+                </button>
+                <button class="nav-btn" onclick="showDashboardTab('documents')">
+                    <i class="fas fa-file-upload"></i>
+                    Documentos
+                </button>
+                <button class="nav-btn" onclick="showDashboardTab('taxes')">
+                    <i class="fas fa-calculator"></i>
+                    Impostos
+                </button>
+                <button class="nav-btn" onclick="showDashboardTab('messages')">
+                    <i class="fas fa-comments"></i>
+                    Mensagens
+                </button>
+                <button class="nav-btn" onclick="showDashboardTab('profile')">
+                    <i class="fas fa-user"></i>
+                    Perfil
+                </button>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Overview Tab -->
+                <div class="dashboard-tab active" id="overview-tab">
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <h3>Próximos Vencimentos</h3>
+                            <div class="upcoming-items" id="upcoming-taxes">
+                                <div class="upcoming-item">
+                                    <div class="item-info">
+                                        <h4>DAS - Simples Nacional</h4>
+                                        <p>Vencimento: 20/08/2025</p>
+                                    </div>
+                                    <div class="item-status pending">
+                                        <i class="fas fa-clock"></i>
+                                        Pendente
+                                    </div>
+                                </div>
+                                <div class="upcoming-item">
+                                    <div class="item-info">
+                                        <h4>IRPJ - Lucro Presumido</h4>
+                                        <p>Vencimento: 31/08/2025</p>
+                                    </div>
+                                    <div class="item-status pending">
+                                        <i class="fas fa-clock"></i>
+                                        Pendente
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-card">
+                            <h3>Atividade Recente</h3>
+                            <div class="activity-feed" id="recent-activity">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-file-upload"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p><strong>Documento enviado:</strong> Nota Fiscal 001</p>
+                                        <span class="activity-time">Há 2 horas</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-message"></i>
+                                    </div>
+                                    <div class="activity-info">
+                                        <p><strong>Nova mensagem:</strong> Seu contador respondeu</p>
+                                        <span class="activity-time">Ontem</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Tab -->
+                <div class="dashboard-tab" id="documents-tab">
+                    <div class="tab-header">
+                        <h2>Gerenciar Documentos</h2>
+                        <button class="btn btn-primary" onclick="showUploadModal()">
+                            <i class="fas fa-plus"></i>
+                            Enviar Documento
+                        </button>
+                    </div>
+                    
+                    <div class="documents-grid" id="documents-list">
+                        <!-- Documents will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Taxes Tab -->
+                <div class="dashboard-tab" id="taxes-tab">
+                    <div class="tab-header">
+                        <h2>Impostos e Guias</h2>
+                        <button class="btn btn-outline" onclick="refreshTaxes()">
+                            <i class="fas fa-sync"></i>
+                            Atualizar
+                        </button>
+                    </div>
+                    
+                    <div class="taxes-grid" id="taxes-list">
+                        <!-- Taxes will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Messages Tab -->
+                <div class="dashboard-tab" id="messages-tab">
+                    <div class="messages-container">
+                        <div class="messages-header">
+                            <h2>Mensagens com seu Contador</h2>
+                        </div>
+                        
+                        <div class="messages-chat" id="messages-chat">
+                            <!-- Messages will be loaded here -->
+                        </div>
+                        
+                        <div class="message-input-container">
+                            <form id="message-form" class="message-form">
+                                <div class="input-group">
+                                    <input type="text" id="message-input" placeholder="Digite sua mensagem..." required>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div class="dashboard-tab" id="profile-tab">
+                    <div class="tab-header">
+                        <h2>Meu Perfil</h2>
+                    </div>
+                    
+                    <div class="profile-form-container">
+                        <form id="profile-form" class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-name">Nome completo</label>
+                                    <input type="text" id="profile-name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">E-mail</label>
+                                    <input type="email" id="profile-email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-phone">Telefone</label>
+                                    <input type="tel" id="profile-phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-cnpj">CNPJ</label>
+                                    <input type="text" id="profile-cnpj" name="cnpj">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-company">Nome da empresa</label>
+                                <input type="text" id="profile-company" name="company">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Salvar alterações</button>
+                                <button type="button" class="btn btn-outline" onclick="showChangePasswordModal()">Alterar senha</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="upload-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Enviar Documento</h3>
+                <button class="modal-close" onclick="closeModal('upload-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="upload-form" class="upload-form">
+                    <div class="form-group">
+                        <label for="document-type">Tipo de documento</label>
+                        <select id="document-type" name="type" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="nota-fiscal">Nota Fiscal</option>
+                            <option value="recibo">Recibo</option>
+                            <option value="contrato">Contrato</option>
+                            <option value="extrato">Extrato Bancário</option>
+                            <option value="comprovante">Comprovante de Pagamento</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="document-description">Descrição</label>
+                        <textarea id="document-description" name="description" placeholder="Descreva o documento..." rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="document-file">Arquivo</label>
+                        <div class="file-upload-area" id="file-upload-area">
+                            <input type="file" id="document-file" name="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Clique para selecionar ou arraste o arquivo aqui</p>
+                                <small>PDF, JPG, PNG, DOC, DOCX (máx. 10MB)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-outline" onclick="closeModal('upload-modal')">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Enviar documento</button>
+                    </div>
                 </form>
-                <div class="message-list" id="messageList">
-                    <!-- Mensagens serão carregadas aqui -->
-                </div>
             </div>
         </div>
     </div>
 
-    <script src="/client.js"></script>
+    <!-- Change Password Modal -->
+    <div class="modal" id="change-password-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Alterar Senha</h3>
+                <button class="modal-close" onclick="closeModal('change-password-modal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="change-password-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="current-password">Senha atual</label>
+                        <input type="password" id="current-password" name="current_password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Nova senha</label>
+                        <input type="password" id="new-password" name="new_password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirmar nova senha</label>
+                        <input type="password" id="confirm-new-password" name="confirm_new_password" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-outline" onclick="closeModal('change-password-modal')">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Alterar senha</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="client.js"></script>
 </body>
 </html>
 
